@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import Box from '../Box';
 import IconCaretRight from '../SVG/IconCaretRight';
+import Pot from './Pot';
 
 const OverviewPots = () => {
 	return (
@@ -35,42 +36,12 @@ const OverviewPots = () => {
 				</article>
 				<article className="col-span-2 flex flex-col gap-4">
 					<div className="grid grid-cols-2">
-						<article className="flex gap-4">
-							<div className="h-full w-1 rounded-lg bg-green" />
-							<div className="flex flex-col">
-								<h4 className="text-xs leading-[150%] text-grey-500">
-									Savings
-								</h4>
-								<p className="text-grey-900 font-bold text-sm">$159</p>
-							</div>
-						</article>
-						<article className="flex gap-4">
-							<div className="h-full w-1 rounded-lg bg-cyan" />
-							<div className="flex flex-col">
-								<h4 className="text-xs leading-[150%] text-grey-500">Gift</h4>
-								<p className="text-grey-900 font-bold text-sm">$40</p>
-							</div>
-						</article>
+						<Pot name="Savings" value={159} color="green" />
+						<Pot name="Gift" value={40} color="cyan" />
 					</div>
 					<div className="grid grid-cols-2">
-						<article className="flex gap-4">
-							<div className="h-full w-1 rounded-lg bg-navy" />
-							<div className="flex flex-col">
-								<h4 className="text-xs leading-[150%] text-grey-500">
-									Concert Ticket
-								</h4>
-								<p className="text-grey-900 font-bold text-sm">$110</p>
-							</div>
-						</article>
-						<article className="flex gap-4">
-							<div className="h-full w-1 rounded-lg bg-yellow" />
-							<div className="flex flex-col">
-								<h4 className="text-xs leading-[150%] text-grey-500">
-									New Laptop
-								</h4>
-								<p className="text-grey-900 font-bold text-sm">$10</p>
-							</div>
-						</article>
+						<Pot name="Concert Ticket" value={110} color="navy" />
+						<Pot name="New Laptop" value={10} color="yellow" />
 					</div>
 				</article>
 			</section>
