@@ -87,7 +87,7 @@ const config = {
 	},
 	plugins: [
 		require('tailwindcss-animate'),
-		({ addUtilities }) => {
+		({ addUtilities }: { addUtilities: any }) => {
 			addUtilities(
 				{
 					'.scale-x-neg': {

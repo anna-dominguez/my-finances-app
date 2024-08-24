@@ -1,8 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import { useState } from 'react';
 import IconOverview from './SVG/IconOverview';
 import IconTransactions from './SVG/IconTransactions';
 import IconBudgets from './SVG/IconBudgets';
@@ -14,7 +13,7 @@ import NavRoute from './NavRoute';
 
 const Navbar = () => {
 	const pathname = usePathname();
-	const [isMinimal, setIsMinimal] = React.useState(false);
+	const [isMinimal, setIsMinimal] = useState(false);
 
 	const isActive = (path: string) => pathname === path;
 
