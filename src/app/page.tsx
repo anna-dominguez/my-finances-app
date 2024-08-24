@@ -1,5 +1,8 @@
 import Box from '@/components/Box';
+import OverviewBudgets from '@/components/Overview/OverviewBudgets';
 import OverviewPots from '@/components/Overview/OverviewPots';
+import OverviewRecurringBills from '@/components/Overview/OverviewRecurringBills';
+import OverviewTransactions from '@/components/Overview/OverviewTransactions';
 import IconCaretRight from '@/components/SVG/IconCaretRight';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -26,56 +29,11 @@ export default function Home() {
 				<section className="grid grid-flow-row lg:grid-cols-5 gap-4 md:gap-6">
 					<div className="lg:col-span-3 space-y-4 md:space-y-6">
 						<OverviewPots />
-						<Box>
-							<header className="flex items-center justify-between">
-								<h3 className="text-xl font-bold leading-[120%] text-grey-900">
-									Transactions
-								</h3>
-								<Link
-									href="/transactions"
-									className="flex items-center gap-4 group cursor-pointer"
-								>
-									<p className="text-sm leading-[150%] text-grey-500 group-hover:text-grey-900">
-										View all
-									</p>
-									<IconCaretRight color="group-hover:text-grey-900" />
-								</Link>
-							</header>
-						</Box>
+						<OverviewTransactions />
 					</div>
 					<div className="lg:col-span-2 space-y-6">
-						<Box>
-							<header className="flex items-center justify-between">
-								<h3 className="text-xl font-bold leading-[120%] text-grey-900">
-									My Budget
-								</h3>
-								<Link
-									href="/budgets"
-									className="flex items-center gap-4 group cursor-pointer"
-								>
-									<p className="text-sm leading-[150%] text-grey-500 group-hover:text-grey-900">
-										See details
-									</p>
-									<IconCaretRight color="group-hover:text-grey-900" />
-								</Link>
-							</header>
-						</Box>
-						<Box>
-							<header className="flex items-center justify-between">
-								<h3 className="text-xl font-bold leading-[120%] text-grey-900">
-									Recurring Bills
-								</h3>
-								<Link
-									href="recurring-bills"
-									className="flex items-center gap-4 group cursor-pointer"
-								>
-									<p className="text-sm leading-[150%] text-grey-500 group-hover:text-grey-900">
-										See details
-									</p>
-									<IconCaretRight color="group-hover:text-grey-900" />
-								</Link>
-							</header>
-						</Box>
+						<OverviewBudgets />
+						<OverviewRecurringBills />
 					</div>
 				</section>
 			</main>

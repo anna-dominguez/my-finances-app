@@ -8,7 +8,7 @@ const Box = ({ children, dark }: BoxProps) => {
 		<article
 			className={`${
 				dark ? 'bg-grey-900 text-white' : 'bg-white'
-			} rounded-xl p-5 md:p-6 space-y-3`}
+			} rounded-xl p-5 md:p-6`}
 		>
 			{children}
 		</article>
