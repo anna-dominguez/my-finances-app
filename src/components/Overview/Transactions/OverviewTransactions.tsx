@@ -1,9 +1,7 @@
 import React from 'react';
-import Box from '../Box';
-import Link from 'next/link';
+import Box from '@/components/Box';
 
-import IconCaretRight from '../SVG/IconCaretRight';
-import Header from './Header';
+import Header from '../Header';
 
 const OverviewTransactions = () => {
 	return (
