@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Public_Sans } from 'next/font/google';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import './globals.css';
 
 const inter = Public_Sans({ subsets: ['latin'] });
@@ -18,7 +18,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`w-full h-min-screen flex bg-beige-100 ${inter.className}`}
+				className={`w-full h-min-screen flex flex-col-reverse lg:flex-row bg-beige-100 ${inter.className}`}
 			>
 				<Navbar />
 				{children}

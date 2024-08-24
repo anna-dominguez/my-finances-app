@@ -2,13 +2,13 @@
 
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import IconOverview from './SVG/IconOverview';
-import IconTransactions from './SVG/IconTransactions';
-import IconBudgets from './SVG/IconBudgets';
-import IconPots from './SVG/IconPots';
-import IconRecurringBills from './SVG/IconRecurringBills';
+import IconOverview from '../SVG/IconOverview';
+import IconTransactions from '../SVG/IconTransactions';
+import IconBudgets from '../SVG/IconBudgets';
+import IconPots from '../SVG/IconPots';
+import IconRecurringBills from '../SVG/IconRecurringBills';
 import Image from 'next/image';
-import IconMinimizeMenu from './SVG/IconMinimizeMenu';
+import IconMinimizeMenu from '../SVG/IconMinimizeMenu';
 import NavRoute from './NavRoute';
 
 const Navbar = () => {
@@ -19,9 +19,9 @@ const Navbar = () => {
 
 	return (
 		<header
-			className={`bg-grey-900 text-slate-300 ${
+			className={`bg-grey-900 text-slate-300 sticky bottom-0 h-fit w-full lg:w-fit lg:h-screen lg:top-0 z-50 ${
 				isMinimal ? 'w-[88px]' : 'min-w-[300px]'
-			} rounded-r-2xl flex flex-col justify-between`}
+			} rounded-t-lg lg:rounded-t-none lg:rounded-tr-2xl lg:rounded-r-2xl flex flex-col justify-between`}
 		>
 			<div className="flex flex-col">
 				<div className="hidden lg:block px-8 py-10 ">
@@ -32,7 +32,7 @@ const Navbar = () => {
 					)}
 				</div>
 				<nav className="font-bold leading-[150%] text-grey-300">
-					<ul>
+					<ul className="flex justify-between lg:flex-col pt-2 px-10 lg:px-0 lg:pr-2">
 						<NavRoute
 							isMinimal={isMinimal}
 							isActive={isActive('/')}
@@ -71,10 +71,11 @@ const Navbar = () => {
 					</ul>
 				</nav>
 			</div>
-			<div className="flex py-10 px-8">
+			<div className="py-10 px-8 hidden lg:flex">
 				<div
 					className="text-grey-300 flex gap-3 items-center cursor-pointer group"
 					onClick={() => setIsMinimal(!isMinimal)}
+					onKeyDown={() => setIsMinimal(!isMinimal)}
 				>
 					{isMinimal ? (
 						<IconMinimizeMenu
