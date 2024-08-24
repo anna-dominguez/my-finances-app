@@ -1,6 +1,6 @@
-import Box from '../Box';
+import Box from '../../Box';
 import React from 'react';
-import Header from './Header';
+import Header from '../Header';
 import Bill from './Bill';
 
 const OverviewRecurringBills = () => {

@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-import Box from '../Box';
+import Box from '../../Box';
 import Pot from './Pot';
-import Header from './Header';
+import Header from '../Header';
 
 const OverviewPots = () => {
 	return (

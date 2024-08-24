@@ -1,7 +1,7 @@
 import Box from '@/components/Box';
-import OverviewBudgets from '@/components/Overview/OverviewBudgets';
-import OverviewPots from '@/components/Overview/OverviewPots';
-import OverviewRecurringBills from '@/components/Overview/OverviewRecurringBills';
+import OverviewBudgets from '@/components/Overview/Budgets/OverviewBudgets';
+import OverviewPots from '@/components/Overview/Pots/OverviewPots';
+import OverviewRecurringBills from '@/components/Overview/Bills/OverviewRecurringBills';
 import OverviewTransactions from '@/components/Overview/OverviewTransactions';
 
 export default function Home() {
