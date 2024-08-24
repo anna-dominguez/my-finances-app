@@ -1,5 +1,7 @@
 import Box from '@/components/Box';
+import OverviewPots from '@/components/Overview/OverviewPots';
 import IconCaretRight from '@/components/SVG/IconCaretRight';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -21,24 +23,9 @@ export default function Home() {
 						<p className="text-[32px] leading-[120%] font-bold">1,700.50</p>
 					</Box>
 				</section>
-				<section className="grid grid-cols-5 gap-6">
-					<div className="col-span-3 space-y-6">
-						<Box>
-							<header className="flex items-center justify-between">
-								<h3 className="text-xl font-bold leading-[120%] text-grey-900">
-									Saving Pot
-								</h3>
-								<Link
-									href="/pots"
-									className="flex items-center gap-4 group cursor-pointer"
-								>
-									<p className="text-sm leading-[150%] text-grey-500 group-hover:text-grey-900">
-										See details
-									</p>
-									<IconCaretRight color="group-hover:text-grey-900" />
-								</Link>
-							</header>
-						</Box>
+				<section className="grid grid-flow-row lg:grid-cols-5 gap-4 md:gap-6">
+					<div className="lg:col-span-3 space-y-4 md:space-y-6">
+						<OverviewPots />
 						<Box>
 							<header className="flex items-center justify-between">
 								<h3 className="text-xl font-bold leading-[120%] text-grey-900">
@@ -56,7 +43,7 @@ export default function Home() {
 							</header>
 						</Box>
 					</div>
-					<div className="col-span-2 space-y-6">
+					<div className="lg:col-span-2 space-y-6">
 						<Box>
 							<header className="flex items-center justify-between">
 								<h3 className="text-xl font-bold leading-[120%] text-grey-900">
