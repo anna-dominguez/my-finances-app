@@ -3,9 +3,6 @@ import OverviewBudgets from '@/components/Overview/OverviewBudgets';
 import OverviewPots from '@/components/Overview/OverviewPots';
 import OverviewRecurringBills from '@/components/Overview/OverviewRecurringBills';
 import OverviewTransactions from '@/components/Overview/OverviewTransactions';
-import IconCaretRight from '@/components/SVG/IconCaretRight';
-import Image from 'next/image';
-import Link from 'next/link';
 
 export default function Home() {
 	return (
