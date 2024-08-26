@@ -1,4 +1,5 @@
 import type { IBudget } from '@/@types/budget';
+import type { ITransaction } from '@/@types/transaction';
 import prisma from '@/lib/prisma';
 import React from 'react';
 
@@ -12,7 +13,7 @@ const BudgetContent = async ({ budget }: BudgetContentProps) => {
 	});
 
 	const spent = transactions.reduce(
-		(acc, transaction) => acc + transaction.amount,
+		(acc: number, transaction: ITransaction) => acc + transaction.amount,
 		0
 	);
 	const remaining = budget.maximum - spent;

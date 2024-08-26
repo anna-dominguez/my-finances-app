@@ -1,3 +1,4 @@
+import type { IBudget } from '@/@types/budget';
 import Box from '@/components/Box';
 import BudgetContent from '@/components/Budget/BudgetContent';
 import BudgetsChart from '@/components/Budget/BudgetsChart';
@@ -9,7 +10,10 @@ const Budgets = async () => {
 	const budgets = await prisma.budget.findMany({ where: { userId: 1 } });
 	console.log('budget', budgets);
 
-	const limit = budgets.reduce((acc, budget) => acc + budget.maximum, 0);
+	const limit = budgets.reduce(
+		(acc: number, budget: IBudget) => acc + budget.maximum,
+		0
+	);
 
 	return (
 		<div className="flex w-full min-h-screen">
