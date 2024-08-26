@@ -37,14 +37,14 @@ const Budgets = async () => {
 								<h3 className="text-grey-900 font-bold text-xl leading-[120%]">
 									Spending Summary
 								</h3>
-								{budgets.map((budget) => (
+								{budgets.map((budget: IBudget) => (
 									<Summary key={budget.id} budget={budget} />
 								))}
 							</div>
 						</Box>
 					</section>
 					<section className="lg:col-span-3 flex flex-col gap-6">
-						{budgets.map((budget) => (
+						{budgets.map((budget: IBudget) => (
 							<Box key={budget.id}>
 								<BudgetContent budget={budget} />
 							</Box>
