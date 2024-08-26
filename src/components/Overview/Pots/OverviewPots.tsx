@@ -4,7 +4,17 @@ import Box from '../../Box';
 import Pot from './Pot';
 import Header from '../Header';
 
-const OverviewPots = () => {
+interface OverviewPotsProps {
+	pots: {
+		id: number;
+		name: string;
+		target: number;
+		total: number;
+		theme: string;
+	}[];
+}
+
+const OverviewPots = ({ pots }: OverviewPotsProps) => {
 	return (
 		<Box>
 			<Header name="Saving Pot" path="/pots" more="See details" />
@@ -17,19 +27,19 @@ const OverviewPots = () => {
 							Total saved
 						</h4>
 						<p className="text-grey-900 text-[32px] leading-[120%] font-bold">
-							$850
+							${pots.reduce((acc, pot) => acc + pot.total, 0)}
 						</p>
 					</div>
 				</article>
-				<article className="col-span-2 flex flex-col gap-4">
-					<div className="grid grid-cols-2">
-						<Pot name="Savings" value={159} color="green" />
-						<Pot name="Gift" value={40} color="cyan" />
-					</div>
-					<div className="grid grid-cols-2">
-						<Pot name="Concert Ticket" value={110} color="navy" />
-						<Pot name="New Laptop" value={10} color="yellow" />
-					</div>
+				<article className="col-span-2 grid grid-flow-col grid-rows-2 gap-4">
+					{pots.slice(0, 4).map((pot) => (
+						<Pot
+							key={pot.id}
+							name={pot.name}
+							value={pot.total}
+							color={pot.theme}
+						/>
+					))}
 				</article>
 			</section>
 		</Box>

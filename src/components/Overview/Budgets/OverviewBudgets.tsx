@@ -1,22 +1,37 @@
 import React from 'react';
 import Box from '../../Box';
 import Header from '../Header';
-import BudgetsChart from './BudgetsChart';
+import BudgetsChart from '../../Budget/BudgetsChart';
 import Pot from '../Pots/Pot';
 
-const OverviewBudgets = () => {
+interface OverviewBudgetsProps {
+	budgets: {
+		id: number;
+		category: string;
+		maximum: number;
+		theme: string;
+	}[];
+}
+
+const OverviewBudgets = ({ budgets }: OverviewBudgetsProps) => {
+	const limit = budgets.reduce((acc, budget) => acc + budget.maximum, 0);
+
 	return (
 		<Box>
 			<Header name="Budgets" path="/budgets" more="See details" />
 			<section className="grid grid-flow-row md:grid-cols-3 pt-7 pb-2 gap-4 items-center justify-center md:justify-start">
 				<article className="col-span-2">
-					<BudgetsChart />
+					<BudgetsChart limit={limit} />
 				</article>
 				<div className="grid grid-cols-2 md:grid-cols-1 gap-4">
-					<Pot name="Entertainment" value={50.0} color="green" />
-					<Pot name="Bills" value={750.0} color="cyan" />
-					<Pot name="Dining Out" value={75.0} color="yellow" />
-					<Pot name="Personal Care" value={100.0} color="navy" />
+					{budgets.map((budget) => (
+						<Pot
+							key={budget.id}
+							name={budget.category}
+							value={budget.maximum}
+							color={budget.theme}
+						/>
+					))}
 				</div>
 			</section>
 		</Box>

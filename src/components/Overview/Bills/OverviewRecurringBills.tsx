@@ -3,7 +3,15 @@ import React from 'react';
 import Header from '../Header';
 import Bill from './Bill';
 
-const OverviewRecurringBills = () => {
+import type { ITransaction } from '@/@types/transaction';
+
+interface OverviewRecurringBillsProps {
+	recurringBills: ITransaction[];
+}
+
+const OverviewRecurringBills = ({
+	recurringBills,
+}: OverviewRecurringBillsProps) => {
 	return (
 		<Box>
 			<Header
@@ -13,9 +21,9 @@ const OverviewRecurringBills = () => {
 			/>
 
 			<section className="space-y-3 pt-8">
-				<Bill name="Paid Bills" value={190.0} color="green" />
-				<Bill name="Total Upcoming" value={194.98} color="yellow" />
-				<Bill name="Due Soon" value={59.98} color="cyan" />
+				<Bill name="Paid Bills" value={190.0} color="#277C78" />
+				<Bill name="Total Upcoming" value={194.98} color="#F2CDAC" />
+				<Bill name="Due Soon" value={59.98} color="#82C9D7" />
 			</section>
 		</Box>
 	);

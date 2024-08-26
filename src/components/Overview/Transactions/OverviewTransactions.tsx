@@ -3,10 +3,22 @@ import Box from '@/components/Box';
 
 import Header from '../Header';
 
-const OverviewTransactions = () => {
+import type { ITransaction } from '@/@types/transaction';
+import Transaction from './Transaction';
+
+interface OverviewTransactionsProps {
+	transactions: ITransaction[];
+}
+
+const OverviewTransactions = ({ transactions }: OverviewTransactionsProps) => {
 	return (
 		<Box>
 			<Header name="Transactions" path="/transactions" more="See details" />
+			<section className="flex flex-col pt-8 gap-10">
+				{transactions.map((transaction) => (
+					<Transaction key={transaction.id} transaction={transaction} />
+				))}
+			</section>
 		</Box>
 	);
 };

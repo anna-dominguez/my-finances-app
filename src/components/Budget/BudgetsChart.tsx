@@ -1,6 +1,10 @@
 'use client';
 
-const BudgetsChart = () => {
+interface BudgetsChartProps {
+	limit: number;
+}
+
+const BudgetsChart = ({ limit }: BudgetsChartProps) => {
 	const data = [
 		{ value: 50, color: '#277C78' },
 		{ value: 750, color: '#82C9D7' },
@@ -44,7 +48,9 @@ const BudgetsChart = () => {
 			</div>
 			<div className="absolute inset-0 flex flex-col items-center justify-center">
 				<p className="text-[32px] font-bold text-grey-900">$338</p>
-				<p className="text-xs leading-[150%] text-grey-500">of $975 limit</p>
+				<p className="text-xs leading-[150%] text-grey-500">
+					of ${limit} limit
+				</p>
 			</div>
 		</div>
 	);
