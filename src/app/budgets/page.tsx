@@ -2,18 +2,13 @@ import type { IBudget } from '@/@types/budget';
 import Box from '@/components/Box';
 import BudgetContent from '@/components/Budget/BudgetContent';
 import BudgetsChart from '@/components/Budget/BudgetsChart';
+import SpendingSummary from '@/components/Budget/SpendingSummary';
 import Summary from '@/components/Budget/Summary';
 import prisma from '@/lib/prisma';
 import React from 'react';
 
 const Budgets = async () => {
 	const budgets = await prisma.budget.findMany({ where: { userId: 1 } });
-	console.log('budget', budgets);
-
-	const limit = budgets.reduce(
-		(acc: number, budget: IBudget) => acc + budget.maximum,
-		0
-	);
 
 	return (
 		<div className="flex w-full min-h-screen">
@@ -29,25 +24,11 @@ const Budgets = async () => {
 				</header>
 				<div className="grid grid-flow-row lg:grid-cols-5 gap-6">
 					<section className="lg:col-span-2">
-						<Box classname="flex w-full flex-col md:grid md:grid-cols-2 lg:flex lg:grid-cols-0 lg:flex-col">
-							<div className="flex justify-center md:justify-normal lg:justify-center">
-								<BudgetsChart limit={limit} />
-							</div>
-							<div className="space-y-6">
-								<h3 className="text-grey-900 font-bold text-xl leading-[120%]">
-									Spending Summary
-								</h3>
-								{budgets.map((budget: IBudget) => (
-									<Summary key={budget.id} budget={budget} />
-								))}
-							</div>
-						</Box>
+						<SpendingSummary budgets={budgets} />
 					</section>
 					<section className="lg:col-span-3 flex flex-col gap-6">
 						{budgets.map((budget: IBudget) => (
-							<Box key={budget.id}>
-								<BudgetContent budget={budget} />
-							</Box>
+							<BudgetContent key={budget.id} budget={budget} />
 						))}
 					</section>
 				</div>

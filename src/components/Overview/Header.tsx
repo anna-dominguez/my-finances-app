@@ -19,7 +19,7 @@ const Header = ({ name, path, more }: HeaderProps) => {
 				<p className="text-sm leading-[150%] text-grey-500 group-hover:text-grey-900">
 					{more}
 				</p>
-				<IconCaretRight color="group-hover:text-grey-900" />
+				<IconCaretRight color="group-hover:fill-grey-900" />
 			</Link>
 		</header>
 	);

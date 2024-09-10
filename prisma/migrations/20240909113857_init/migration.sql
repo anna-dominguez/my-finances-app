@@ -25,10 +25,10 @@ CREATE TABLE "Transaction" (
     "id" SERIAL NOT NULL,
     "avatar" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "category" TEXT NOT NULL,
     "date" TIMESTAMP(3) NOT NULL,
     "amount" DOUBLE PRECISION NOT NULL,
     "recurring" BOOLEAN NOT NULL,
+    "category" TEXT NOT NULL,
     "userId" INTEGER NOT NULL,
 
     CONSTRAINT "Transaction_pkey" PRIMARY KEY ("id")
@@ -37,9 +37,9 @@ CREATE TABLE "Transaction" (
 -- CreateTable
 CREATE TABLE "Budget" (
     "id" SERIAL NOT NULL,
-    "category" TEXT NOT NULL,
     "maximum" DOUBLE PRECISION NOT NULL,
     "theme" TEXT NOT NULL,
+    "category" TEXT NOT NULL,
     "userId" INTEGER NOT NULL,
 
     CONSTRAINT "Budget_pkey" PRIMARY KEY ("id")

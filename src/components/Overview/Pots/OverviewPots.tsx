@@ -17,7 +17,7 @@ interface OverviewPotsProps {
 const OverviewPots = ({ pots }: OverviewPotsProps) => {
 	return (
 		<Box>
-			<Header name="Saving Pot" path="/pots" more="See details" />
+			<Header name="Saving Pot" path="/pots" more="See Details" />
 
 			<section className="grid md:grid-cols-4 gap-5 pt-5 items-center">
 				<article className="col-span-2 flex gap-4 p-4 items-center bg-beige-100 rounded-xl">

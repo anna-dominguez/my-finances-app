@@ -13,7 +13,7 @@ interface OverviewTransactionsProps {
 const OverviewTransactions = ({ transactions }: OverviewTransactionsProps) => {
 	return (
 		<Box>
-			<Header name="Transactions" path="/transactions" more="See details" />
+			<Header name="Transactions" path="/transactions" more="View All" />
 			<section className="flex flex-col pt-8 gap-10">
 				{transactions.map((transaction) => (
 					<Transaction key={transaction.id} transaction={transaction} />

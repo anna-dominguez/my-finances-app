@@ -35,7 +35,6 @@ model Transaction {
   date       DateTime
   amount     Float
   recurring  Boolean
-  theme      String
   category    String
   userId     Int
   user       User     @relation(fields: [userId], references: [id])

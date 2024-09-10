@@ -2,17 +2,13 @@
 
 interface BudgetsChartProps {
 	limit: number;
+	data: {
+		value: number;
+		color: string;
+	}[];
 }
 
-const BudgetsChart = ({ limit }: BudgetsChartProps) => {
-	const data = [
-		{ value: 50, color: '#277C78' },
-		{ value: 750, color: '#82C9D7' },
-		{ value: 75, color: '#F2CDAC' },
-		{ value: 100, color: '#626070' },
-		{ value: 100, color: '#626070' },
-	];
-
+const BudgetsChart = ({ limit, data }: BudgetsChartProps) => {
 	const total = data.reduce((sum, { value }) => sum + value, 0);
 
 	const getPercentage = (value: number) => (value / total) * 100;
@@ -22,12 +18,18 @@ const BudgetsChart = ({ limit }: BudgetsChartProps) => {
 			<div className="w-full h-full">
 				<svg viewBox="0 0 32 32">
 					{data.map((segment, index) => {
+						// Calculer le pourcentage pour le segment actuel
+						const segmentPercentage = getPercentage(segment.value);
+						// Calculer l'offset cumulé en pourcentage
 						const offset = data
 							.slice(0, index)
 							.reduce((sum, { value }) => sum + getPercentage(value), 0);
-						const strokeDasharray = `${getPercentage(segment.value)} ${
-							100 - getPercentage(segment.value)
+
+						const strokeDasharray = `${segmentPercentage} ${
+							100 - segmentPercentage
 						}`;
+						const strokeDashoffset = index === 0 ? 0 : 100 - offset;
+						console.log(offset, strokeDasharray, strokeDashoffset, segment);
 
 						return (
 							<circle
@@ -39,7 +41,7 @@ const BudgetsChart = ({ limit }: BudgetsChartProps) => {
 								strokeWidth="4"
 								fill="none"
 								strokeDasharray={strokeDasharray}
-								strokeDashoffset={`${100 - offset}`}
+								strokeDashoffset={strokeDashoffset}
 								transform="rotate(-90 16 16)"
 							/>
 						);
@@ -47,7 +49,7 @@ const BudgetsChart = ({ limit }: BudgetsChartProps) => {
 				</svg>
 			</div>
 			<div className="absolute inset-0 flex flex-col items-center justify-center">
-				<p className="text-[32px] font-bold text-grey-900">$338</p>
+				<p className="text-[32px] font-bold text-grey-900">${-total}</p>
 				<p className="text-xs leading-[150%] text-grey-500">
 					of ${limit} limit
 				</p>
